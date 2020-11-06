@@ -16,6 +16,7 @@ class CreateSectorsTable extends Migration
         Schema::create('sectors', function (Blueprint $table) {
             $table->id();
             $table->integer('size');
+            $table->float('price_per_seat');
             $table->timestamps();
         });
     }
