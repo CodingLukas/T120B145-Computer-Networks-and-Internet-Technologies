@@ -15,8 +15,8 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->integer('seat_id');
             $table->integer('event_id');
+            $table->integer('sector_id');
             $table->integer('user_id');
             $table->timestamps();
         });

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('/sectors', 'SectorController@index');
+Route::get('/sectors', 'SectorController@index')->name('sectors');
 
 Route::resource('admin/events', EventController::class);
+
+Route::post('tickets/{eventId}', 'TicketController@store')->name('tickets.create');
 
