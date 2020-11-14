@@ -10,6 +10,16 @@ class Event extends Model
         'name',
         'start_date',
         'end_date',
-        'active'
+        'active',
+        'user_id'
     ];
+
+    protected $casts = [
+        'active' => 'boolean'
+    ];
+
+    public function getId()
+    {
+        return $this->id;
+    }
 }

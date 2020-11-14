@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/sectors', 'SectorController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('admin/events', EventController::class);
+
