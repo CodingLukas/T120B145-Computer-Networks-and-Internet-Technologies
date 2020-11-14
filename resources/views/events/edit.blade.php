@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="row">
@@ -31,9 +31,9 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>`
+                    <strong>
                         Pavadinimas:</strong>
-                    <input type="text" Pavadinimas="Pavadinimas" value="{{ $event->Pavadinimas }}" class="form-control" placeholder="Pavadinimas">
+                    <input type="text" name="name" value="{{ $event->name }}" class="form-control" placeholder="Pavadinimas">
                 </div>
                 <div class="form-group">
                     <strong>Aktyvumas:</strong>
@@ -41,7 +41,7 @@
                         $checked = $event->active;
                         if(old('active')) $checked = old('active');
                     @endphp
-                    <input type="checkbox" Pavadinimas="active" {{ $checked ? "checked" : "" }}>
+                    <input type="checkbox" name="active" {{ $checked ? "checked" : "" }}>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

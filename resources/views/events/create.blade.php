@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="row">
@@ -29,7 +29,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Pavadinimas:</strong>
-                    <input type="text" Pavadinimas="Pavadinimas" class="form-control" placeholder="Pavadinimas" value="{{old('Pavadinimas')}}">
+                    <input type="text" name="name" class="form-control" placeholder="Pavadinimas" value="{{old('Pavadinimas')}}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
