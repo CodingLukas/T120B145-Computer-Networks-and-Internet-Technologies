@@ -24,5 +24,5 @@ Route::get('/sectors', 'SectorController@index')->name('sectors');
 
 Route::resource('admin/events', EventController::class);
 
-Route::post('tickets/{eventId}', 'TicketController@store')->name('tickets.create');
+Route::post('tickets/{eventId}', 'ReservationController@store')->name('tickets.create');
 

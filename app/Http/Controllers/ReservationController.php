@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Sector;
-use App\Ticket;
+use App\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TicketController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -24,12 +24,12 @@ class TicketController extends Controller
                 $totalFree = $sector->getFreeCount($eventId);
                 if ($totalFree > $amount) {
                     for ($j = 0; $j < $amount; $j++) {
-                        $data = [
+                         $data = [
                             'user_id' => Auth::user()->getId(),
                             'event_id' => $eventId,
                             'sector_id' => $sector->getId()
                         ];
-                        Ticket::create($data);
+                        Reservation::create($data);
                     }
                 } else {
                     return back()->withErrors('Renginys neturi tiek laisvų vietų!')->withInput();

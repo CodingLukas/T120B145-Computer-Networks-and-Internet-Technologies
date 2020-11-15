@@ -10,7 +10,7 @@ class Sector extends Model
     {
         $total = $this->size;
 
-        $usedSeats = Ticket::query()->where([
+        $usedSeats = Reservation::query()->where([
             'sector_id' => $this->id,
             'event_id' => $eventId
         ])->count();
