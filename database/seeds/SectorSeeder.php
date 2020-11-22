@@ -12,7 +12,7 @@ class SectorSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('sectors')->truncate();
+//        DB::table('sectors')->truncate();
 
         DB::table('sectors')->insert([
             'size' => 20,

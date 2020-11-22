@@ -14,7 +14,7 @@ class CreateSectorsTable extends Migration
     public function up()
     {
         Schema::create('sectors', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unsigned();
             $table->integer('size');
             $table->decimal('price_per_seat');
             $table->timestamps();

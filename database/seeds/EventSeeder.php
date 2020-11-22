@@ -11,7 +11,7 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('events')->truncate();
+       // DB::table('events')->truncate();
 
         DB::table('events')->insert([
             'name' => 'Krepšinis',
