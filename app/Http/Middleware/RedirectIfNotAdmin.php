@@ -18,7 +18,7 @@ class RedirectIfNotAdmin
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (!Auth::guard($guard)->check() || !Auth::user()->isAdmin()) {
+        if (!Auth::guard($guard)->check() || !Auth::user()->canAccessAdminZone()) {
             return redirect(RouteServiceProvider::HOME);
         }
 

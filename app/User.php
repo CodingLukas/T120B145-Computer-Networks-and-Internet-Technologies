@@ -44,6 +44,20 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->is_admin;
+        return $this->user_level == 1;
+    }
+
+    public function isEditor()
+    {
+        return $this->user_level == 2;
+    }
+
+    public function canAccessAdminZone()
+    {
+        if ($this->isAdmin() || $this->isEditor()) {
+            return true;
+        }
+
+        return false;
     }
 }

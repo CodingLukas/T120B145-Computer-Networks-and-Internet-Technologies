@@ -17,7 +17,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::latest()->paginate(5);
+        if (Auth::user()->isEditor()) {
+            $events = Event::query()->where(['user_id' => Auth::user()->getId()])->paginate(5);
+        } else {
+            $events = Event::latest()->paginate(5);
+        }
 
         return view('events.index', compact('events'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -49,12 +53,12 @@ class EventController extends Controller
 
         $data = $request->validate($data);
 
-        //$data['user_id'] = Auth::user()->getId();
+        $data['user_id'] = Auth::user()->getId();
 
         Event::create($data);
 
         return redirect()->route('events.index')
-            ->with('success', 'Event created successfully.');
+            ->with('success', 'Renginys sukurtas sėkmingai.');
     }
 
     /**
@@ -87,9 +91,11 @@ class EventController extends Controller
 
         if ($active && $events->isNotEmpty()) {
             return back()->withErrors('Renginys jau aktyvus!')->withInput();
-        }else if($validator->fails()){
-            return redirect()->route('events.edit', $event->getId())
-                ->withErrors($validator)->withInput();
+        } else {
+            if ($validator->fails()) {
+                return redirect()->route('events.edit', $event->getId())
+                    ->withErrors($validator)->withInput();
+            }
         }
 
         $data = [

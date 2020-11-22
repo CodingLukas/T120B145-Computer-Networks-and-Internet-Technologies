@@ -22,7 +22,7 @@ class ReservationController extends Controller
         foreach ($sectors as $sector) {
             $amount = $request->get('sector-'.($sector->id - 1));
                 $totalFree = $sector->getFreeCount($eventId);
-                if ($totalFree > $amount) {
+                if ($totalFree >= $amount) {
                     for ($j = 0; $j < $amount; $j++) {
                          $data = [
                             'user_id' => Auth::user()->getId(),

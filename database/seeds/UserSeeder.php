@@ -15,9 +15,23 @@ class UserSeeder extends Seeder
         DB::table('users')->truncate();
 
         DB::table('users')->insert([
-            'name' => 'Test',
+            'name' => 'Testas',
             'email' => 'test@bilietas.lt',
-            'password' => bcrypt('test'),
+            'password' => bcrypt('password'),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Adminas',
+            'email' => 'admin@bilietas.lt',
+            'password' => bcrypt('password'),
+            'user_level' => 1,
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Redaktorius',
+            'email' => 'redaktorius@bilietas.lt',
+            'password' => bcrypt('password'),
+            'user_level' => 2,
         ]);
 
     }

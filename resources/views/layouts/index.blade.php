@@ -72,7 +72,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('sectors') }}">{{ __('Sektoriai') }}</a>
                             </li>
-                            @if(Auth::user()->isAdmin())
+                            @if(Auth::user()->canAccessAdminZone())
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin') }}">{{ __('Admin') }}</a>
                             </li>

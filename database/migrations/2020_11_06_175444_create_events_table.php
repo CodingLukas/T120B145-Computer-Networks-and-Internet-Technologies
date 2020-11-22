@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             //$table->timestamp('start_date')->nullable();
             //$table->timestamp('end_date')->nullable();
             $table->boolean('active')->default(false);
-            //$table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }
