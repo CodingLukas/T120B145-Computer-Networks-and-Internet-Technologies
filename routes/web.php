@@ -23,6 +23,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/sectors', 'SectorController@index')->name('sectors');
 
 Route::resource('admin/events', EventController::class);
+Route::resource('admin/users', UserRightsController::class);
 
 Route::post('tickets/{eventId}', 'ReservationController@store')->name('tickets.create');
 

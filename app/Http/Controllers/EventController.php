@@ -106,7 +106,7 @@ class EventController extends Controller
         $event->update($data);
 
         return redirect()->route('events.index')
-            ->with('success', 'Event updated successfully');
+            ->with('success', 'Renginys sekmingai atnaujintas');
     }
 
     /**
